@@ -157,3 +157,17 @@ svg {
     text-align: center;
     border-top: 1px solid #E5E5E5;
 }
+.bg-footer {
+    position: relative;
+    margin-bottom: -225px;
+    z-index: 9;
+    text-align: center;
+}
+.bg-footer img {
+    max-width: 100%;
+}
+img {
+    vertical-align: middle;
+    border-style: none;
+    height: auto;
+}
