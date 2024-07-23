@@ -15,62 +15,6 @@
                         </div>
                 </div>
         </section>
-        <section class="section_service">
-                <div class="container">
-                        <div class="swiper-container">
-                                <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
-                                        <div class="swiper-slide" style="width: 228px; margin-right: 20px;">
-                                                <div class="item">
-                                                        <div class="image">
-                                                                <img width="150" height="150" src="assets_user/img/image_service1.webp" alt="Cảm kết chất lượng">
-                                                        </div>
-                                                        <div class="text">
-                                                                <h3>Cảm kết chất lượng</h3>
-                                                                <p>Bồi hoàn gấp 10 lần giá trị sản phẩm nếu phát hiện hàng giả.</p>
-                                                        </div>
-                                                </div>
-
-                                        </div>
-                                        <div class="swiper-slide" style="width: 292.5px; margin-right: 30px;">
-                                                <div class="item">
-                                                        <div class="image">
-                                                                <img width="150" height="150" src="assets_user/img/image_service2.webp" alt="Đảm bảo vệ sinh ATTP">
-                                                        </div>
-                                                        <div class="text">
-                                                                <h3>Đảm bảo vệ sinh ATTP</h3>
-                                                                <p>Quy trình sản xuất khép kín, theo tiêu chuẩn về VSATTP của bộ y tế.</p>
-                                                        </div>
-                                                </div>
-
-                                        </div>
-                                        <div class="swiper-slide" style="width: 292.5px; margin-right: 30px;">
-                                                <div class="item">
-                                                        <div class="image">
-                                                                <img width="150" height="150" src="assets_user/img/image_service3.webp" alt="Đổi trả sản phẩm">
-                                                        </div>
-                                                        <div class="text">
-                                                                <h3>Đổi trả sản phẩm</h3>
-                                                                <p>Đổi trả sản phẩm trong vòng 24h kể từ thời điểm nhận hàng</p>
-                                                        </div>
-                                                </div>
-
-                                        </div>
-                                        <div class="swiper-slide" style="width: 292.5px; margin-right: 30px;">
-                                                <div class="item">
-                                                        <div class="image">
-                                                                <img width="150" height="150" src="assets_user/img/image_service4.webp" alt="Giao hàng">
-                                                        </div>
-                                                        <div class="text">
-                                                                <h3>Giao hàng</h3>
-                                                                <p>Giao hàng toàn quốc, thanh toán COD ngay tại nơi nhận hàng.</p>
-                                                        </div>
-                                                </div>
-
-                                        </div>
-                                </div>
-                        </div>
-                </div>
-        </section>
         <section class="section_flash_sale">
                 <div class="container">
                         <div class="block-wraper">
@@ -93,7 +37,7 @@
                                                                         foreach ($products as $product) {
                                                                                 $discounted_price = calculateDiscountPrice($product['price'], $product['discount_percentage']);
                                                                         ?>
-                                                                                <div class="swiper-slide" style="width: 228px; margin-right: 20px;">
+                                                                                <div class="swiper-slide" style="width: 228px; margin-left: 10px; margin-right: 10px;">
                                                                                         <div class="item_product_main">
                                                                                                 <form class="variants product-action" action="" method="post">
                                                                                                         <div class="product-thumbnail">
@@ -132,7 +76,7 @@
                         </div>
                 </div>
         </section>
-        <section class="section_mission">
+        <!-- <section class="section_mission">
                 <div class="container">
                         <div class="block-title">
                                 <h2>Sứ mệnh</h2>
@@ -148,7 +92,7 @@
                                 </div>
                         </div>
                 </div>
-        </section>
+        </section> -->
         <section class="section_product_new section_product">
                 <div class="container">
                         <div class="block-title">
@@ -353,95 +297,6 @@
                                                                                         </form>
                                                                                 </div>
                                                                         </div>
-                                                                </div>
-                                                                <div class="swiper-wrapper" style="width: 1280px; transform: translate3d(0px, 0px, 0px);margin-top: 20px;">
-                                                                        <div class="swiper-slide" style="width: 300px; margin-right: 20px;margin-right: 20px;">
-                                                                                <div class="item_product_main">
-                                                                                        <form class="variants product-action" action="" method="post">
-                                                                                                <div class="product-thumbnail">
-                                                                                                        <a href="#" class="image_thumb scale_hover" title="Tổ yến tinh chế loại 2" style="height: 196px;">
-                                                                                                                <img width="480" height="480" src="assets_user/img/ezgif-com-webp-to-jpg-7-15a2056f-35a4-4ad8-891c-9fb85d59ce58-961bb2fe-bfbf-4b3a-be9c-0e63c8bec06f.webp" alt="Tổ yến tinh chế loại 2">
-                                                                                                        </a>
-                                                                                                        <span class="smart">- 9%</span>
-                                                                                                        <span class="smart">- 9%</span>
-                                                                                                </div>
-                                                                                                <div class="product-info">
-                                                                                                        <h3 class="product-name">
-                                                                                                                <a href="#" title="Tổ yến tinh chế loại 2">Tổ yến tinh chế loại 2</a>
-                                                                                                        </h3>
-                                                                                                        <div class="price-box">
-                                                                                                                <span class="price">2.150.000đ</span>
-                                                                                                                <span class="compare-price">2.350.000₫</span>
-                                                                                                        </div>
-                                                                                                </div>
-                                                                                                <div class="product-btn d-none d-xl-block">
-                                                                                                        <div class="actions-primary btn-views">
-                                                                                                                <button class="btn-cart" type="button" title="Thêm vào giỏ hàng">
-                                                                                                                        Thêm vào giỏ hàng
-                                                                                                                </button>
-                                                                                                        </div>
-                                                                                                </div>
-                                                                                        </form>
-                                                                                </div>
-                                                                        </div>
-                                                                        <div class="swiper-slide" style="width: 300px; margin-right: 20px;">
-                                                                                <div class="item_product_main">
-                                                                                        <form class="variants product-action" action="" method="post">
-                                                                                                <div class="product-thumbnail">
-                                                                                                        <a href="#" class="image_thumb scale_hover" title="Tổ yến tinh chế loại 1" style="height: 196px;">
-                                                                                                                <img width="480" height="480" src="assets_user/img/ezgif-com-webp-to-jpg-4-22cafcf8-ff8d-4f35-83c7-c04882005b53.webp" alt="Tổ yến tinh chế loại 1">
-                                                                                                        </a>
-                                                                                                        <span class="smart">- 9%</span>
-                                                                                                        <span class="smart">- 9%</span>
-                                                                                                </div>
-                                                                                                <div class="product-info">
-                                                                                                        <h3 class="product-name">
-                                                                                                                <a href="#" title="Tổ yến tinh chế loại 1">Tổ yến tinh chế loại 1</a>
-                                                                                                        </h3>
-                                                                                                        <div class="price-box">
-                                                                                                                <span class="price">2.150.000đ</span>
-                                                                                                                <span class="compare-price">2.350.000₫</span>
-                                                                                                        </div>
-                                                                                                </div>
-                                                                                                <div class="product-btn d-none d-xl-block">
-                                                                                                        <div class="actions-primary btn-views">
-                                                                                                                <button class="btn-cart" type="button" title="Thêm vào giỏ hàng">
-                                                                                                                        Thêm vào giỏ hàng
-                                                                                                                </button>
-                                                                                                        </div>
-                                                                                                </div>
-                                                                                        </form>
-                                                                                </div>
-                                                                        </div>
-                                                                        <div class="swiper-slide" style="width: 300px; margin-right: 20px;">
-                                                                                <div class="item_product_main">
-                                                                                        <form class="variants product-action" action="" method="post">
-                                                                                                <div class="product-thumbnail">
-                                                                                                        <a href="#" class="image_thumb scale_hover" title="Tổ yến rút lông xuất khẩu" style="height: 196px;">
-                                                                                                                <img width="480" height="480" src="assets_user/img/ezgif-com-webp-to-jpg-3-fb37e369-6fd4-4b2b-a003-6d7b49aae776.webp" alt="Tổ yến rút lông xuất khẩu">
-                                                                                                        </a>
-                                                                                                        <span class="smart">- 9%</span>
-                                                                                                        <span class="smart">- 5%</span>
-                                                                                                </div>
-                                                                                                <div class="product-info">
-                                                                                                        <h3 class="product-name">
-                                                                                                                <a href="#" title="Tổ yến rút lông xuất khẩu">Tổ yến rút lông xuất khẩu</a>
-                                                                                                        </h3>
-                                                                                                        <div class="price-box">
-                                                                                                                <span class="price">5.300.000đ</span>
-                                                                                                                <span class="compare-price">5.600.000₫</span>
-                                                                                                        </div>
-                                                                                                </div>
-                                                                                                <div class="product-btn d-none d-xl-block">
-                                                                                                        <div class="actions-primary btn-views">
-                                                                                                                <button class="btn-cart" type="button" title="Thêm vào giỏ hàng">
-                                                                                                                        Thêm vào giỏ hàng
-                                                                                                                </button>
-                                                                                                        </div>
-                                                                                                </div>
-                                                                                        </form>
-                                                                                </div>
-                                                                        </div>
                                                                         <div class="swiper-slide" style="width: 300px; margin-right: 20px;">
                                                                                 <div class="item_product_main">
                                                                                         <form class="variants product-action" action="" method="post">
@@ -479,7 +334,7 @@
                         </div>
                 </div>
         </section>
-        <section class="section_product_special">
+        <!-- <section class="section_product_special">
                 <div class="container">
                         <div class="block-title">
                                 <h2>
@@ -493,6 +348,62 @@
                                 </div>
                                 <div class="special-image">
                                         <img width="758" height="491" src="assets_user/img/section_product_special_image.webp" alt="Lofi Nest">
+                                </div>
+                        </div>
+                </div>
+        </section> -->
+        <section class="section_service">
+                <div class="container">
+                        <div class="swiper-container">
+                                <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
+                                        <div class="swiper-slide" style="width: 228px; margin-right: 15px;margin-left: 15px;">
+                                                <div class="item">
+                                                        <div class="image">
+                                                                <img width="150" height="150" src="assets_user/img/image_service1.webp" alt="Cảm kết chất lượng">
+                                                        </div>
+                                                        <div class="text">
+                                                                <h3>Cảm kết chất lượng</h3>
+                                                                <p>Bồi hoàn gấp 10 lần giá trị sản phẩm nếu phát hiện hàng giả.</p>
+                                                        </div>
+                                                </div>
+
+                                        </div>
+                                        <div class="swiper-slide" style="width: 292.5px; margin-right: 15px;margin-left: 15px;">
+                                                <div class="item">
+                                                        <div class="image">
+                                                                <img width="150" height="150" src="assets_user/img/image_service2.webp" alt="Đảm bảo vệ sinh ATTP">
+                                                        </div>
+                                                        <div class="text">
+                                                                <h3>Đảm bảo vệ sinh ATTP</h3>
+                                                                <p>Quy trình sản xuất khép kín, theo tiêu chuẩn về VSATTP của bộ y tế.</p>
+                                                        </div>
+                                                </div>
+
+                                        </div>
+                                        <div class="swiper-slide" style="width: 292.5px; margin-right: 15px;margin-left: 15px;">
+                                                <div class="item">
+                                                        <div class="image">
+                                                                <img width="150" height="150" src="assets_user/img/image_service3.webp" alt="Đổi trả sản phẩm">
+                                                        </div>
+                                                        <div class="text">
+                                                                <h3>Đổi trả sản phẩm</h3>
+                                                                <p>Đổi trả sản phẩm trong vòng 24h kể từ thời điểm nhận hàng</p>
+                                                        </div>
+                                                </div>
+
+                                        </div>
+                                        <div class="swiper-slide" style="width: 292.5px; margin-right: 15px;margin-left: 15px;">
+                                                <div class="item">
+                                                        <div class="image">
+                                                                <img width="150" height="150" src="assets_user/img/image_service4.webp" alt="Giao hàng">
+                                                        </div>
+                                                        <div class="text">
+                                                                <h3>Giao hàng</h3>
+                                                                <p>Giao hàng toàn quốc, thanh toán COD ngay tại nơi nhận hàng.</p>
+                                                        </div>
+                                                </div>
+
+                                        </div>
                                 </div>
                         </div>
                 </div>
@@ -573,6 +484,3 @@
                 </div>
         </section>
 </div>
-<!-- <div class="bg-footer">
-        <img src="assets_user/img/footer-bg.webp" class="img-responsion" alt="Lofi Nest">
-</div> -->

@@ -22,6 +22,6 @@ function calculateDiscountPrice($price, $discount_percentage, $round_to = 50000)
 // Hàm lấy sản phẩm có mã giảm trên 12%
 function getDiscountedProducts()
 {
-    $sql = "SELECT * FROM products WHERE discount_percentage > 10";
+    $sql = "SELECT * FROM products WHERE discount_percentage >= 10";
     return pdo_query($sql); 
 }
