@@ -10,13 +10,15 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Poppins:wght@400;500&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="./assets_user/css/style.css" />
-    <!-- <link rel="stylesheet" href="./assets_user/css/login.css" />
-    <link rel="stylesheet" href="./assets_user/css/singup.css" /> -->
+    <link rel="stylesheet" href="./assets_user/css/login.css" />
+    <link rel="stylesheet" href="./assets_user/css/signup.css" />
   </head>
   <body>
     <div class="top-bar">

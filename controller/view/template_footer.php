@@ -70,6 +70,4 @@
 </div>
 </footer>
 </body>
-<script src="./assets_user/js/header.js"></script>
-<script src="./assets_user/js/scrollbody.js"></script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="assets_user/js/header.js"></script>
