@@ -11,6 +11,9 @@ if ($_GET['act']) {
         case 'signup':
             include_once 'view/page_signup.php';
             break;
+        case 'product_categories':
+            include_once 'view/product_categories.php';
+            break;
         default:
             # 404 - trang web không tồn tại!
             break;

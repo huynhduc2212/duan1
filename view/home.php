@@ -110,7 +110,7 @@
                                                                 foreach ($products as $product) {
                                                                         $discounted_price = calculateDiscountPrice($product['price'], $product['discount_percentage']);
                                                                 ?>
-                                                                        <div class="swiper-slide" style="width: 300px; margin-right: 20px;">
+                                                                        <div class="swiper-slide" style="width: 300px; margin-right: 10px; margin-left: 10px;">
                                                                                 <div class="item_product_main">
                                                                                         <form class="variants product-action" action="" method="post">
                                                                                                 <div class="product-thumbnail">

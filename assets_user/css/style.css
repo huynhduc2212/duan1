@@ -663,6 +663,9 @@ p {
 .section_flash_sale .swiper-wrapper{
   flex-wrap: wrap;
 }
+.block-product .swiper-wrapper{
+  flex-wrap: wrap;
+}
 .section_product_tab .block-title h2 {
   display: inline-block;
   padding-bottom: 20px;
@@ -829,6 +832,47 @@ button, input {
   height: 50px;
   font-weight: bold;
 }
+.bread-crumb {
+  margin-bottom: 40px;
+  min-height: 275px;
+  display: flex;
+  align-items: center;
+}
+.bread-crumb .title-breadcrumb {
+  color: #bf9f70;
+  font-size: 36px;
+  max-width: 900px;
+}
+.breadcrumb {
+  margin: 0;
+  font-size: 16px;
+  padding: 10px 0px;
+  border-radius: 0;
+  font-weight: 400;
+  line-height: 24px;
+  width: 100%;
+  max-width: 900px;
+}
+.breadcrumb li {
+  display: inline;
+}
+.breadcrumb li>a {
+  color: #333;
+}
+.breadcrumb li .mr_lr {
+  padding: 0px 3px;
+  color: #333;
+}
+.breadcrumb li span {
+  display: inline;
+  color: #333;
+}
+.breadcrumb li .mr_lr svg {
+  width: 10px;
+  height: 10px;
+  margin-top: -2px;
+}
+
 /* End :: Home */
 
 /* Start :: footer */
