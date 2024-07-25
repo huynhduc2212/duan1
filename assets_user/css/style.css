@@ -460,11 +460,6 @@ img {
   background: linear-gradient(280.89deg, rgba(232, 210, 179, 0.3) -58.55%, rgba(191, 159, 112, 0.3) 99.7%);
   border-radius: 10px;
 }
-.section_flash_sale .block-title {
-  margin-bottom: 30px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #fff;
-}
 .block-title {
   text-transform: uppercase;
   margin-bottom: 10px;
@@ -833,7 +828,7 @@ button, input {
 
 /* Start :: Product categories */
 .bread-crumb {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   min-height: 275px;
   display: flex;
   align-items: center;
@@ -883,6 +878,7 @@ button, input {
 
 /* End :: Product categories */
 
+/*  Start :: Product details */
 /* Start :: Product details */
 .layout-product {
   padding: 5px 0px 0px;
@@ -1255,6 +1251,7 @@ button, input {
 }
 
 /* End :: Product details */
+/* End :: Product details */
 
 /* Start :: footer */
 .footer {
@@ -1323,6 +1320,7 @@ h4 {
 .row2 {
   flex: 0 0 16.666667%;
   max-width: 16.666667%;
+  padding-left: 50px;
 }
 .desc {
   line-height: 1.6;
@@ -1372,10 +1370,11 @@ svg {
 }
 
 .path {
-  stroke: rgb(255, 255, 255);
+  stroke: #a78976;
   stroke-width: 1.5;
   stroke-linecap: round;
   stroke-linejoin: round;
+  width: 2px;
 }
 
 .footer #copyright {
