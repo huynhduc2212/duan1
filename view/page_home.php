@@ -41,7 +41,7 @@
                                                                                         <div class="item_product_main">
                                                                                                 <form class="variants product-action" action="" method="post">
                                                                                                         <div class="product-thumbnail">
-                                                                                                                <a href="#" class="image_thumb scale_hover" title="<?php echo $product['name']; ?>" style="height: 196px;">
+                                                                                                                <a href="?mod=product&act=productdetails" class="image_thumb scale_hover" title="<?php echo $product['name']; ?>" style="height: 196px;">
                                                                                                                         <img width="480" height="480" src="assets_user/img/<?php echo $product['thumbnail']; ?>" alt="<?php echo $product['name']; ?>">
                                                                                                                 </a>
                                                                                                                 <span class="smart">- <?php echo $product['discount_percentage']; ?>%</span>
@@ -98,7 +98,7 @@
                 <div class="container">
                         <div class="block-title">
                                 <h2>
-                                        <a href="#" title="Tổ yến chưng sẵn"><?php echo getnamecata()?></a>
+                                        <a href="#" title="Tổ yến chưng sẵn"><?php echo getCategory_Home() ?></a>
                                 </h2>
                         </div>
                         <div class="row-bd">

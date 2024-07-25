@@ -5,35 +5,35 @@
 }
 
 .container-login {
-  height: 100vh;
   padding: 20px;
   width: 100%;
   max-width: 400px;
 }
 
 .login-form {
-  padding: 20px;
+  padding: 0px;
 }
 
 .login-form h2 {
   text-align: center;
   margin-bottom: 10px;
+  font-family: "Apple-system", sans-serif;
   font-size: 26px;
+  font-weight: normal;
 }
 
 .login-form p {
+  font-size: 14px;
   text-align: center;
   margin-bottom: 20px;
-  font-size: 14px;
-}
-
-.login-form p a {
-  color: #b88945;
 }
 
 .login-form input {
   width: 100%;
-  padding: 15px;
+  /* padding: 15px; */
+  height: 45px;
+  padding: 0 20px;
+  line-height: 45px;
   margin: 10px 0;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -41,14 +41,10 @@
   background-color: #ebebeb;
 }
 
-.login-form input:focus {
-  outline: none;
-}
-
 .login-form button[type="submit"] {
   width: 100%;
   padding: 15px;
-  margin-top: 10px;
+  margin: 10px 0;
   border: none;
   background-color: #d1a654;
   color: white;
@@ -60,17 +56,24 @@
   background-color: #b88945;
 }
 
-.social-login a.link-gold1 {
-  display: block;
-  margin: 15px 0;
-  color: #171511;
-  font-size: 14px;
+.login-form a.link-gold {
+  color: #d1a654;
   text-decoration: none;
 }
-
+.social-login a.link-gold1 {
+  font-size: 14px;
+  color: #171511;
+  display: block;
+  margin: 15px 0;
+  text-decoration: none;
+}
+.login-form a.link-gold:hover {
+  color: #171511;
+  text-decoration: underline;
+}
 .social-login a.link-gold1:hover {
   color: #b88945;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .social-login {
@@ -79,7 +82,7 @@
 }
 
 .social-login p {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .social-buttons {
@@ -115,17 +118,7 @@
   justify-content: center;
   width: 30%;
   height: 100%;
-}
-
-.icon-container i:after {
-  position: absolute;
-  display: block;
-  content: "";
-  left: 52px;
-  top: 0px;
-  width: 1px;
-  background-color: #4d4a45;
-  height: 42px;
+  position: relative;
 }
 
 .icon-container i {
@@ -133,10 +126,22 @@
   color: white;
 }
 
+.icon-container i:after {
+  position: absolute;
+  display: block;
+  content: "";
+  left: 45px;
+  top: -9px;
+  width: 1px;
+  background-color: #4d4a45;
+  height: 42px;
+}
+
 .text-container {
   width: 70%;
   display: flex;
+  font-size: 13px;
+  color: white;
   align-items: center;
-  font-size: 12px;
   justify-content: center;
 }
