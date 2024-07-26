@@ -1,18 +1,16 @@
 <?php
-$products = getProductByCategory_Home();
+$products = getDiscountedProducts();
 foreach ($products as $product) {
     $discounted_price = calculateDiscountPrice($product['price'], $product['discount_percentage']);
 ?>
-    <div class="swiper-slide" style="width: 300px; margin-right: 20px;">
+    <div class="swiper-slide" style="width: 228px; margin-left: 10px; margin-right: 10px;">
         <div class="item_product_main">
             <form class="variants product-action" action="" method="post">
                 <div class="product-thumbnail">
-                    <a href="#" class="image_thumb scale_hover" title="Yến chưng khang phục 2" style="height: 258px;">
+                    <a href="?mod=product&act=productDetails" class="image_thumb scale_hover" title="<?php echo $product['name']; ?>" style="height: 196px;">
                         <img width="480" height="480" src="assets_user/img/<?php echo $product['thumbnail']; ?>" alt="<?php echo $product['name']; ?>">
                     </a>
-                    <?php if ($product['discount_percentage'] > 0) : ?>
-                        <span class="smart"><?php echo $product['discount_percentage']; ?>%</span>
-                    <?php endif; ?>
+                    <span class="smart"><?php echo $product['discount_percentage']; ?>%</span>
                 </div>
                 <div class="product-info">
                     <h3 class="product-name">
@@ -20,9 +18,7 @@ foreach ($products as $product) {
                     </h3>
                     <div class="price-box">
                         <span class="price"><?php echo number_format($discounted_price, 0, ',', '.'); ?>đ</span>
-                        <?php if ($product['discount_percentage'] > 0) : ?>
-                            <span class="compare-price"><?php echo number_format($product['price'], 0, ',', '.'); ?>₫</span>
-                        <?php endif; ?>
+                        <span class="compare-price"><?php echo number_format($product['price'], 0, ',', '.'); ?>₫</span>
                     </div>
                 </div>
                 <div class="product-btn d-none d-xl-block">

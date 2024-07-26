@@ -81,7 +81,7 @@
               </a>
             </div>
             <div class="header-cart">
-              <a href="" class="icon">
+              <a href="?mod=page&act=cart" class="icon">
                 <img src="https://bizweb.dktcdn.net/100/488/726/themes/911609/assets/shopping-cart.svg?1705829900945" alt="" />
                 <span>0</span>
               </a>
