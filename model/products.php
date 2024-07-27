@@ -51,7 +51,7 @@ function getProductByCategory_Home()
 }
 
 // hàm hiển thị chi tiết sản phẩm
-function getProductDetails()
+function getProductDetails($id)
 {
   $sql = "SELECT p.*, c.name as category_name, group_concat(i.img order by i.display_order asc seperator ',') as images
             from products p
@@ -59,4 +59,6 @@ function getProductDetails()
             left join images i on p.id = i.id_product
             where p.id = ?
             group by p.id";
+  return pdo_query_one($sql, $id);
 }
+
