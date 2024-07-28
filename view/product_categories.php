@@ -3,7 +3,7 @@ $html_product_category = show_sp_home($products_category);
 $html_categories = '';
 foreach ($categories as $item) {
     extract($item);
-    if ($id == $category_id) {
+    if ($id > $category_id) {
         $act = 'active';
     } else {
         $act = '';
@@ -26,7 +26,7 @@ foreach ($categories as $item) {
 
                 <div class="row-bd">
                     <div class="row-bd1">
-                        <div class="block-product active">
+                        <div class="block-product">
                             <div class="swiper-container" style="cursor: grab;">
                                 <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
                                     <?php echo $html_product_category; ?>
@@ -39,3 +39,6 @@ foreach ($categories as $item) {
         </div>
     </div>
 </main>
+<section id="pagination">
+    <?= $dssotrang ?>
+</section>

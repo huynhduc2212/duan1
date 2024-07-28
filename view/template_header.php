@@ -27,7 +27,7 @@
     <div class="container">
       <div class="row-header">
         <div class="header-logo">
-          <a href=""><img src="assets_user/img/logo.webp" alt="" /></a>
+          <a href="?mod=page&act=home"><img src="assets_user/img/logo.webp" alt="" /></a>
         </div>
         <div class="header-menu">
           <nav class="header-nav">
@@ -42,7 +42,7 @@
                 </ul> -->
               </li>
               <li class="nav-item">
-                <a href="" class="link-item">Sản phẩm </a>
+                <a href="?mod=product&act=product" class="link-item">Sản phẩm </a>
                 <i class="fa fa-caret-down"></i>
                 <div class="mega-content">
                   <div class="container">
