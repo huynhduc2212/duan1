@@ -1,181 +1,95 @@
-<main>
-    <link rel="stylesheet" href="assets_user/css/payment.css">
-    <div class="content">
-        <form action="">
-            <div class="wrap">
-                <main class="main">
-                    <header class="main__header">
-                        <div class="logo logo--left">
-                            <h1 class="shop__name">
-                                <a href="">Lofi Nest</a>
-                            </h1>
+<?php
+if (isset($_SESSION['giohang']) && (count($_SESSION['giohang']) > 0)) {
+  $html_cart = '<div class="cart-header-info">
+                      <div>Thông tin sản phẩm</div>
+                      <div>Đơn giá</div>
+                      <div>Số lượng</div>
+                      <div>Thành tiền</div>
+                    </div>';
+  $tong = 0;
+  $i = 0;
+  foreach ($_SESSION['giohang'] as $item) {
+    extract($item);
+    $thanhtien = $giasp * $soluong;
+    $tong += $thanhtien;
+    $html_cart .= '<div class="ajaxcart__inner ajaxcart__inner--has-fixed-footer cart_body items">
+                      <div class="ajaxcart__row">
+                        <div class="ajaxcart__product cart_product">
+                          <a href="" class="ajaxcart__product-image cart_image" title="' . $tensp . '">
+                            <img src="assets_user/img/' . $hinhsp . '" alt="' . $tensp . '">
+                          </a>
+                          <div class="grid__item cart_info">
+                            <div class="ajaxcart__product-name-wrapper cart_name">
+                              <a href="" class="ajaxcart__product-name h4" title="' . $tensp . '">' . $tensp . '</a>
+                              <a href="?mod=page&act=cart&ind=' . $i . '" class="cart__btn-remove remove-item-cart ajaxifyCart--remove">Xóa</a>
+                            </div>
+                            <div class="grid">
+                              <div class="grid__item one-half text-right cart_prices">
+                                <span class="cart-price">' . number_format($giasp, 0, ',', '.') . '</span>
+                              </div>
+                            </div>
+                            <div class="grid">
+                              <div class="grid__item one-half cart_select">
+                                <div class="ajaxcart__qty input-group-btn">
+                                  ' . $soluong . '
+                                </div>
+                              </div>
+                            </div>
+                            <div class="grid">
+                              <div class="grid__item one-half text-right cart_prices">
+                                <span class="cart-price">' . number_format($thanhtien, 0, ',', '.') . '</span>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                    </header>
-                    <div class="main__content">
-                        <article class="animate-floating-labels row">
-                            <div class="col col--two">
-                                <section class="section">
-                                    <div class="section__header">
-                                        <div class="layout-flex">
-                                            <h2 class="section__title layout-flex__item layout-flex__item--stretch">
-                                            Thông tin nhận hàng
-                                            </h2>
-                                            <a href="">
-                                                <i class="fa fa-user-circle-o fa-lg"></i>
-                                                <span>Đăng nhập</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="section__content">
-                                        <div class="fieldset">
-                                            <div class="field">
-                                                <div class="field__input-wrapper">
-                                                    <input type="text" class="field__input" placeholder="Họ và tên">
-                                                </div>
-                                            </div>
-                                            <div class="field">
-                                                <div class="field__input-wrapper">
-                                                    <input type="tel" class="field__input" placeholder="Số điện thoại">
-                                                </div>
-                                            </div>
-                                            <div class="field">
-                                                <div class="field__input-wrapper">
-                                                    <input type="text" class="field__input" placeholder="Địa chỉ">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
+                      </div>
+                    </div>';
+    $i++;
+  }
+  $html_cart .= ' 
+  <a href="?mod=page&act=cart&delcart=1" class="del-all">
+  <button type="button">Xóa tất cả sản phẩm</button>
+  </a>
+  <div class="ajaxcart__footer ajaxcart__footer--fixed cart-footer">
+                      <div class="row-bd">
+                        <div class="col-lg-4 col-12 offset-md-8 offset-lg-8 offset-xl-8">
+                          <div class="ajaxcart__subtotal">
+                            <div class="cart__subtotal">
+                              <div class="cart__col-6">Tổng tiền:</div>
+                              <div class="text-right cart__totle">
+                                <span class="total-price">' . number_format($tong, 0, ',', '.') . '</span>
+                              </div>
                             </div>
-                            <div class="col col--two">
-                                <section class="section">
-                                    <div class="section__header">
-                                        <div class="layout-flex">
-                                            <h2 class="section__title layout-flex__item layout-flex__item--stretch">
-                                                Thanh toán
-                                            </h2>
-                                        </div>
-                                    </div>
-                                    <div class="section__content">
-                                        <div class="content-box">
-                                            <div class="content-box__row">
-                                                <div class="radio-wrapper">
-                                                    <div class="radio__input">
-                                                        <input type="radio" class="input-radio">
-                                                    </div>
-                                                    <label class="radio__label">
-                                                        <span class="radio__label__primary">Thanh toán khi giao hàng (COD)</span>
-                                                        <span class="radio__label__accessory">
-                                                            <span class="radio__label__icon"></span>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
-                            </div>
-                        </article>
-                    </div>
-                </main>
-                <aside class="sidebar">
-                    <div class="sidebar__header">
-                        <h2 class="sidebar__title">Đơn hàng (2 sản phẩm)</h2>
-                    </div>
-                    <div class="sidebar__content">
-                        <div class="order-summary order-summary--is-collapsed">
-                            <div class="order-summary__sections">
-                                <div class="order-summary__section order-summary__section--product-list order-summary__section--is-scrollable order-summary--collapse-element">
-                                    <table class="product-table">
-                                        <tbody>
-                                            <tr class="product">
-                                                <td class="product__image">
-                                                    <div class="product-thumbnailtt">
-                                                        <div class="product-thumbnail__wrapper">
-                                                            <img src="assets_user/img/toyentinhche3.webp" alt="">
-                                                        </div>
-                                                        <span class="product-thumbnail__quantity">1</span>
-                                                    </div>
-                                                </td>
-                                                <th class="product__description">
-                                                    <span class="product__description__name">Tổ yến rút lông xuất khẩu</span>
-                                                </th>
-                                                <td class="product__price">5.300.000₫</td>
-                                            </tr>
-
-                                            <tr class="product">
-                                                <td class="product__image">
-                                                    <div class="product-thumbnailtt">
-                                                        <div class="product-thumbnail__wrapper">
-                                                            <img src="assets_user/img/toyentinhche3.webp" alt="">
-                                                        </div>
-                                                        <span class="product-thumbnail__quantity">1</span>
-                                                    </div>
-                                                </td>
-                                                <th class="product__description">
-                                                    <span class="product__description__name">Tổ yến rút lông xuất khẩu</span>
-                                                </th>
-                                                <td class="product__price">5.300.000₫</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="order-summary__section order-summary__section--discount-code">
-                                    <div class="edit_checkout animate-floating-labels">
-                                        <div class="fieldset">
-                                            <div class="field ">
-                                                <div class="field__input-btn-wrapper">
-                                                    <div class="field__input-wrapper">
-                                                        <input type="text" class="field__input" placeholder="Nhập mã giảm giá">
-                                                    </div>
-                                                    <button type="button" class="field__input-btn btn spinner btn--disabled">
-                                                        <span class="spinner-label">Áp dụng</span>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="order-summary__section order-summary__section--total-lines order-summary--collapse-element">
-                                    <table class="total-line-table">
-                                        <tbody class="total-line-table__tbody">
-                                            <tr class="total-line total-line--subtotal">
-                                                <th class="total-line__name">Tạm tính</th>
-                                                <td class="total-line__price">10.600.000₫</td>
-                                            </tr>
-                                            <tr class="total-line total-line--shipping-fee">
-                                                <th class="total-line__name">Phí vận chuyển</th>
-                                                <td class="total-line__price">
-                                                    <span>Miễn phí</span>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                        <tfoot class="total-line-table__footer">
-                                            <tr class="total-line payment-due">
-                                                <th class="total-line__name">
-                                                    <span class="payment-due__label-total">Tổng cộng</span>
-                                                </th>
-                                                <td class="total-line__price">
-                                                    <span class="payment-due__price">10.600.000</span>
-                                                </td>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                </div>
-                                <div class="order-summary__nav field__input-btn-wrapper hide-on-mobile layout-flex--row-reverse">
-                                    <button type="submit" class="btn btn-checkout spinner">
-                                        <span class="spinner-label">ĐẶT HÀNG</span>
-                                    </button>
-                                    <a href="" class="previous-link">
-                                        <i class="previous-link__arrow">❮</i>
-                                        <span class="previous-link__content">Quay về giỏ hàng</span>
-                                    </a>
-                                </div>
-                            </div>
+                          </div>
+                          <div class="cart__btn-proceed-checkout-dt">
+                            <button type="button" class="button btn btn-default cart__btn-proceed-checkout" id="btn-proceed-checkout" title="Thanh toán">Thanh toán</button>
+                          </div>
                         </div>
-                    </div>
-                </aside>
+                      </div>
+                    </div>';
+} else {
+  $html_cart = '<div class= "box-cart">
+  <i class="fa-solid fa-cart-arrow-down empty-cart"></i>
+  <div class="text">Không có sản phẩm nào trong giỏ hàng của bạn</div>
+  </div>';
+}
+?>
+<div class="bg-home">
+  <section class="main-cart-page main-container col1-layout">
+    <div class="main container cartpcstyle">
+      <div class="wrap_background_aside margin-bottom-40">
+        <div class="row-bd">
+          <div class="col-xl-9 col-lg-8 col-12 col-cart-left">
+            <div class="cart-page d-xl-block d-none">
+              <div class="drawer__inner">
+                <div class="CartPageContainer">
+                  <?php echo $html_cart; ?>
+                </div>
+              </div>
             </div>
-        </form>
+          </div>
+        </div>
+      </div>
     </div>
-</main>
+  </section>
+</div>
