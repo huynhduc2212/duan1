@@ -27,8 +27,8 @@
 }
 
 .bread-crumb {
-  margin-bottom: 40px;
-  min-height: 275px;
+  margin-bottom: 15px;
+  min-height: 200px;
   display: flex;
   align-items: center;
 }

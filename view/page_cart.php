@@ -62,7 +62,9 @@ if (isset($_SESSION['giohang']) && (count($_SESSION['giohang']) > 0)) {
                             </div>
                           </div>
                           <div class="cart__btn-proceed-checkout-dt">
+                          <a href="?mod=page&act=payment">
                             <button type="button" class="button btn btn-default cart__btn-proceed-checkout" id="btn-proceed-checkout" title="Thanh toán">Thanh toán</button>
+                          </a>
                           </div>
                         </div>
                       </div>

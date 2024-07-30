@@ -4,13 +4,13 @@
         <form action="">
             <div class="wrap">
                 <main class="main">
-                    <header class="main__header">
+                    <!-- <header class="main__header">
                         <div class="logo logo--left">
                             <h1 class="shop__name">
                                 <a href="">Lofi Nest</a>
                             </h1>
                         </div>
-                    </header>
+                    </header> -->
                     <div class="main__content">
                         <article class="animate-floating-labels row">
                             <div class="col col--two">
@@ -18,16 +18,22 @@
                                     <div class="section__header">
                                         <div class="layout-flex">
                                             <h2 class="section__title layout-flex__item layout-flex__item--stretch">
-                                            Thông tin nhận hàng
+                                                Thông tin nhận hàng
                                             </h2>
-                                            <a href="">
-                                                <i class="fa fa-user-circle-o fa-lg"></i>
-                                                <span>Đăng nhập</span>
-                                            </a>
+
                                         </div>
                                     </div>
                                     <div class="section__content">
+                                        <a class="dnnud" href="">
+                                            <i class="fa fa-user-circle-o fa-lg"></i>
+                                            <span>Đăng nhập để nhận thêm ưu đãi</span>
+                                        </a>
                                         <div class="fieldset">
+                                        <div class="field">
+                                                <div class="field__input-wrapper">
+                                                    <input type="email" class="field__input" placeholder="Email">
+                                                </div>
+                                            </div>
                                             <div class="field">
                                                 <div class="field__input-wrapper">
                                                     <input type="text" class="field__input" placeholder="Họ và tên">
@@ -45,34 +51,76 @@
                                             </div>
                                         </div>
                                     </div>
-                                </section>
-                            </div>
-                            <div class="col col--two">
-                                <section class="section">
                                     <div class="section__header">
                                         <div class="layout-flex">
                                             <h2 class="section__title layout-flex__item layout-flex__item--stretch">
-                                                Thanh toán
+                                                Thông tin người nhận khác (nếu cần)
                                             </h2>
+
                                         </div>
                                     </div>
                                     <div class="section__content">
-                                        <div class="content-box">
-                                            <div class="content-box__row">
-                                                <div class="radio-wrapper">
-                                                    <div class="radio__input">
-                                                        <input type="radio" class="input-radio">
-                                                    </div>
-                                                    <label class="radio__label">
-                                                        <span class="radio__label__primary">Thanh toán khi giao hàng (COD)</span>
-                                                        <span class="radio__label__accessory">
-                                                            <span class="radio__label__icon"></span>
-                                                        </span>
-                                                    </label>
+                                        <div class="fieldset">
+                                        <div class="field">
+                                                <div class="field__input-wrapper">
+                                                    <input type="email" class="field__input" placeholder="Email">
+                                                </div>
+                                            </div>
+                                            <div class="field">
+                                                <div class="field__input-wrapper">
+                                                    <input type="text" class="field__input" placeholder="Họ và tên">
+                                                </div>
+                                            </div>
+                                            <div class="field">
+                                                <div class="field__input-wrapper">
+                                                    <input type="tel" class="field__input" placeholder="Số điện thoại">
+                                                </div>
+                                            </div>
+                                            <div class="field">
+                                                <div class="field__input-wrapper">
+                                                    <input type="text" class="field__input" placeholder="Địa chỉ">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- <section class="section">
+                                        <div class="section__header">
+                                            <div class="layout-flex">
+                                                <h2 class="section__title layout-flex__item layout-flex__item--stretch">
+                                                    Thanh toán
+                                                </h2>
+                                            </div>
+                                        </div>
+                                        <div class="section__content">
+                                            <div class="content-box">
+                                                <div class="content-box__row">
+                                                    <div class="radio-wrapper">
+                                                        <div class="radio__input">
+                                                            <input type="radio" class="input-radio">
+                                                        </div>
+                                                        <label class="radio__label">
+                                                            <span class="radio__label__primary">Thanh toán khi giao hàng (COD)</span>
+                                                            <span class="radio__label__accessory">
+                                                                <span class="radio__label__icon"></span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="radio-wrapper">
+                                                        <div class="radio__input">
+                                                            <input type="radio" class="input-radio">
+                                                        </div>
+                                                        <label class="radio__label">
+                                                            <span class="radio__label__primary">Thanh toán online</span>
+                                                            <span class="radio__label__accessory">
+                                                                <span class="radio__label__icon"></span>
+                                                            </span>
+                                                        </label>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section> -->
                                 </section>
                             </div>
                         </article>
@@ -91,10 +139,10 @@
                                             <tr class="product">
                                                 <td class="product__image">
                                                     <div class="product-thumbnailtt">
-                                                        <div class="product-thumbnail__wrapper">
+                                                        <div class="product-thumbnailtt__wrapper">
                                                             <img src="assets_user/img/toyentinhche3.webp" alt="">
                                                         </div>
-                                                        <span class="product-thumbnail__quantity">1</span>
+                                                        <span class="product-thumbnailtt__quantity">1</span>
                                                     </div>
                                                 </td>
                                                 <th class="product__description">
@@ -106,10 +154,10 @@
                                             <tr class="product">
                                                 <td class="product__image">
                                                     <div class="product-thumbnailtt">
-                                                        <div class="product-thumbnail__wrapper">
+                                                        <div class="product-thumbnailtt__wrapper">
                                                             <img src="assets_user/img/toyentinhche3.webp" alt="">
                                                         </div>
-                                                        <span class="product-thumbnail__quantity">1</span>
+                                                        <span class="product-thumbnailtt__quantity">1</span>
                                                     </div>
                                                 </td>
                                                 <th class="product__description">
@@ -171,6 +219,44 @@
                                         <span class="previous-link__content">Quay về giỏ hàng</span>
                                     </a>
                                 </div>
+                                <section class="section">
+                                        <!-- <div class="section__header">
+                                            <div class="layout-flex">
+                                                <h2 class="section__title layout-flex__item layout-flex__item--stretch">
+                                                    Thanh toán
+                                                </h2>
+                                            </div>
+                                        </div> -->
+                                        <div class="section__content">
+                                            <div class="content-box">
+                                                <div class="content-box__row">
+                                                    <div class="radio-wrapper">
+                                                        <div class="radio__input">
+                                                            <input type="radio" class="input-radio">
+                                                        </div>
+                                                        <label class="radio__label">
+                                                            <span class="radio__label__primary">Thanh toán khi giao hàng (COD)</span>
+                                                            <span class="radio__label__accessory">
+                                                                <span class="radio__label__icon"></span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="radio-wrapper">
+                                                        <div class="radio__input">
+                                                            <input type="radio" class="input-radio">
+                                                        </div>
+                                                        <label class="radio__label">
+                                                            <span class="radio__label__primary">Thanh toán online</span>
+                                                            <span class="radio__label__accessory">
+                                                                <span class="radio__label__icon"></span>
+                                                            </span>
+                                                        </label>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
                             </div>
                         </div>
                     </div>
