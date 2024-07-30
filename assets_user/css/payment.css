@@ -457,7 +457,7 @@ td:last-child, th:last-child {
 .btn--disabled {
     opacity: .6;
 }
-.btn {
+.btt {
     cursor: pointer;
     display: inline-block;
     background-color: #357ebd;
