@@ -194,3 +194,105 @@ function showProductRelated($products)
   }
   return $html_product_related;
 }
+
+function showBlogs($blogs)
+{
+  $html_blog = '';
+  foreach ($blogs as $item) {
+    extract($item);
+    $html_blog .= '<div class="tin-tuc-item">
+                    <div class="tin-tuc-thumb">
+                        <a href="?mod=page&act=blogDetails&idblog=' . $id . '">
+                            <img src="assets_user/img/' . $img . '" alt="' . $img . '">
+                            <div class="tin-tuc-content">
+                                <h3>' . $name . '</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>';
+  }
+  return $html_blog;
+}
+
+function show_cart_checkout()
+{
+  $html_table_product = '';
+
+  if (isset($_SESSION['giohang']) && (count($_SESSION['giohang']) > 0)) {
+    $tong = 0;
+    foreach ($_SESSION['giohang'] as $item) {
+      extract($item);
+      $thanhtien = $giasp * $soluong;
+      $tong += $thanhtien;
+      $html_table_product .= '<table class="product-table">
+                      <tbody>
+                        <tr class="product">
+                          <td class="product__image">
+                            <div class="product-thumbnailtt">
+                              <div class="product-thumbnailtt__wrapper">
+                                <img src="assets_user/img/' . $hinhsp . '" alt="' . $tensp . '">
+                              </div>
+                              <span class="product-thumbnailtt__quantity">' . $soluong . '</span>
+                            </div>
+                          </td>
+                          <th class="product__description">
+                            <span class="product__description__name">' . $tensp . '</span>
+                          </th>
+                          <td class="product__price">' . number_format($giasp, 0, ',', '.') . 'đ</td>
+                        </tr>
+                      </tbody>
+                    </table>';
+    }
+  }
+  return $html_table_product;
+}
+
+function show_bill($billct)
+{
+  $html_orderdetails = '';
+  foreach ($billct as $item) {
+    extract($item);
+    $html_orderdetails .= '
+                          <tr class="product">
+                            <td class="product__image">
+                              <div class="product-thumbnail">
+                                <div class="product-thumbnail__wrapper">
+                                  <img src="assets_user/img/' . $img . '" alt="product-thumbnail__image" class="product-thumbnail__image">
+                                </div>
+                                <span class="product-thumbnail__quantity unprintable">' . $quantity . '</span>
+                              </div>
+                            </td>
+                            <th class="product__description">
+                              <span class="product__description__name">' . $name . '</span>
+                            </th>
+                            <td class="product__price">' . number_format($price, 0, ',', '.') . '₫</td>
+                          </tr>
+                        ';
+  }
+  return $html_orderdetails;
+}
+
+function show_sp_admin($products)
+{
+  $html_product_admin = "";
+  foreach ($products as $item) {
+    extract($item);
+    $discounted_price = calculateDiscountPrice($price, $discount_percentage);
+    $short_desc = mb_strimwidth($des, 0, 20, '...'); // Giới hạn 50 ký tự
+    $html_product_admin .= '<tr>
+                                    <td>' . $id . '</td>
+                                    <td>' . $name . '</td>
+                                    <td>' . number_format($discounted_price, 0, ',', '.') . 'đ</td>
+                                    <td>' . $discount_percentage . '</td>
+                                    <td>' . $id_category . '</td>
+                                    <td>' . $thumbnail . '</td>
+                                    <td>' . $short_desc . '</td>
+                                    <td>
+<a href="?mod=product&act=add_product"><span class="status delivered">Add</span></a>
+<a href="?mod=product&act=edit_product&id=' . $id . '"><span class="status delivered">Edit</span>
+<a href="?mod=product&act=Delete_product&id=' . $id . '"><span class="status return">Delete</span>
+                                    </td>
+                                </tr>';
+  }
+  return $html_product_admin;
+}

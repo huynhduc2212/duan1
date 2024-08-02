@@ -2,9 +2,6 @@
 include_once 'model/connect.php';
 include_once 'model/cart.php';
 include_once 'model/user.php';
-include_once 'view/template_head.php';
-include_once 'view/template_header.php';
-include_once 'view/template_banner.php';
 
 if ($_GET['act']) {
     switch ($_GET['act']) {
@@ -14,36 +11,69 @@ if ($_GET['act']) {
                 unset($_SESSION['user']);
             }
             header("Location: ?mod=page&act=home");
+
+            include_once 'view/template_head.php';
+            include_once 'view/template_header.php';
+            include_once 'view/template_banner.php';
             break;
         case 'login':
-            if (isset($_POST['btn_login'])) {
-                $password = $_POST['password'];
-                $email = $_POST['email'];
-                // kiểm tra username và password
-                if (check_login($email, $password)) {
-                    $userinfo = check_login($email, $password);
-                    $_SESSION['user'] =  $userinfo;
-                    header("Location: ?mod=page&act=home");
-                } else {
+            // if (isset($_POST['btn_login'])) {
+            //     $password = $_POST['password'];
+            //     $email = $_POST['email'];
+            //     // kiểm tra username và password
+            //     if (check_login($email, $password)) {
+            //         $userinfo = check_login($email, $password);
+            //         $_SESSION['user'] =  $userinfo;
+            //         header("Location: ?mod=page&act=home");
+            //     } else {
+            //         echo "<script>alert('Sai tên đăng nhập hoặc mật khẩu');</script>";
+            //     }
+            // }
+            if(isset($_POST['btn_login'])){
+                $kq = check_login($_POST['email'], $_POST['password']);
+                if($kq){
+                    $_SESSION['user'] = $kq;
+                    if( $kq['role']=='1'){
+                        header("Location: ?mod=product&act=admin_product");
+                    }else{
+                        header("Location: ?mod=page&act=home");
+                    }
+                }else{
                     echo "<script>alert('Sai tên đăng nhập hoặc mật khẩu');</script>";
                 }
             }
 
+            $tendm = "Đăng nhập tài khoản";
+            $pathpage = "Trang chủ | " . $tendm;
+            $pathpage_a = "<div class='path'><a href='index.php'> Trang chủ </a> > <span>$tendm</span> </div>";
+
+            include_once 'view/template_head.php';
+            include_once 'view/template_header.php';
+            include_once 'view/template_banner.php';
             include_once 'view/page_login.php';
             break;
         case 'signup':
             // đăng kí
             if (isset($_POST['btn_signup'])) {
                 $username = $_POST['username'];
+                $fullname = $_POST['fullname'];
                 $password = $_POST['password'];
                 $email = $_POST['email'];
 
                 // ghi nhận username
                 $_SESSION['username'] = $username;
-                insert_user($username, $password, $email);
+                insert_user($username, $fullname, $email, $password);
                 // auto login
                 header("Location: ?mod=user&act=login");
             }
+
+            $tendm = "Đăng ký tài khoản";
+            $pathpage = "Trang chủ | " . $tendm;
+            $pathpage_a = "<div class='path'><a href='index.php'> Trang chủ </a> > <span>$tendm</span> </div>";
+
+            include_once 'view/template_head.php';
+            include_once 'view/template_header.php';
+            include_once 'view/template_banner.php';
             include_once 'view/page_signup.php';
             break;
         case 'userupdate':
@@ -57,8 +87,23 @@ if ($_GET['act']) {
                 $phone = $_POST['phone'];
 
                 update_user($email, $fullname, $address, $phone, $password, $username);
-                header("Location: ?mod=user&act=userupdate");
+                $_SESSION['user']['username'] = $username;
+                $_SESSION['user']['fullname'] = $fullname;
+                $_SESSION['user']['email'] = $email;
+                $_SESSION['user']['phone'] = $phone;
+                $_SESSION['user']['address'] = $address;
+
+                // header("Location: ?mod=user&act=userupdate");
+                header("Location: ?mod=page&act=home");
             }
+
+            $tendm = "Cập nhật tài khoản";
+            $pathpage = "Trang chủ | " . $tendm;
+            $pathpage_a = "<div class='path'><a href='index.php'> Trang chủ </a> > <span>$tendm</span> </div>";
+
+            include_once 'view/template_head.php';
+            include_once 'view/template_header.php';
+            include_once 'view/template_banner.php';
             include_once 'view/page_userupdate.php';
             break;
         default:
