@@ -153,7 +153,6 @@
                                 <td>Discount</td>
                                 <td>Category</td>
                                 <td>Img</td>
-                                <td>Des</td>
                                 <td>Actions</td>
                             </tr>
                         </thead>

@@ -278,7 +278,7 @@ function show_sp_admin($products)
   foreach ($products as $item) {
     extract($item);
     $discounted_price = calculateDiscountPrice($price, $discount_percentage);
-    $short_desc = mb_strimwidth($des, 0, 20, '...'); // Giới hạn 50 ký tự
+    // $short_desc = mb_strimwidth($des, 0, 20, '...'); // Giới hạn 50 ký tự
     $html_product_admin .= '<tr>
                                     <td>' . $id . '</td>
                                     <td>' . $name . '</td>
@@ -286,7 +286,6 @@ function show_sp_admin($products)
                                     <td>' . $discount_percentage . '</td>
                                     <td>' . $id_category . '</td>
                                     <td>' . $thumbnail . '</td>
-                                    <td>' . $short_desc . '</td>
                                     <td>
 <a href="?mod=product&act=add_product"><span class="status delivered">Add</span></a>
 <a href="?mod=product&act=edit_product&id=' . $id . '"><span class="status delivered">Edit</span>

@@ -129,7 +129,6 @@ if ($_GET['act']) {
                 $kq = delete_product($_GET['id']);
                 if ($kq) {
                     echo "<script>
-                        alert('Đã xoá sản phẩm [" . $_GET['id'] . "] thành công');
                         window.location.href = 'admin.php?mod=product&act=admin_product';
                       </script>";
                     exit();
