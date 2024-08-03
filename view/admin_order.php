@@ -1,3 +1,4 @@
+<?php ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +16,7 @@
         <div class="navigation">
             <ul>
                 <li>
-                    <a href="#">
+                    <a href="?mod=page&act=home">
                         <!-- <span class="icon">
                             <ion-icon name="logo-apple"></ion-icon>
                         </span> -->
@@ -32,7 +33,7 @@
                     </a>
                 </li> -->
                 <li>
-                    <a href="#">
+                    <a href="?mod=product&act=admin_product">
                         <span class="icon">
                             <ion-icon name="bag-remove-outline"></ion-icon>
                         </span>
@@ -41,7 +42,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="?mod=user&act=admin_user">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
@@ -50,7 +51,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="?mod=product&act=admin_order">
                         <span class="icon">
                             <ion-icon name="clipboard-outline"></ion-icon>
                         </span>
@@ -147,22 +148,18 @@
                         <thead>
                             <tr>
                                 <td>ID</td>
-                                <td>Name</td>
-                                <td>Price</td>
+                                <td>Code</td>
+                                <td>Order_date</td>
+                                <td>Phone</td>
+                                <td>Total</td>
+                                <td>Status</td>
+                                <td>Address</td>
                                 <td>Actions</td>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td>Star Refrigerator</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td>
-                                    <span class="status delivered">Edit</span>
-                                
-                                </td>
-                            </tr>
+                            <?php echo show_od_admin($order); ?>
 
                             <!-- <tr>
                                 <td>Dell Laptop</td>

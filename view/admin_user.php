@@ -149,16 +149,16 @@
                             <tr>
                                 <td>ID</td>
                                 <td>Name</td>
-                                <td>Price</td>
-                                <td>Discount</td>
-                                <td>Category</td>
-                                <td>Img</td>
+                                <td>Email</td>
+                                <td>Phone</td>
+                                <td>Password</td>
+                                <td>Role</td>
                                 <td>Actions</td>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <?php echo show_sp_admin($products); ?>
+                            <?php echo show_us_admin($users); ?>
 
                             <!-- <tr>
                                 <td>Dell Laptop</td>

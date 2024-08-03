@@ -45,9 +45,9 @@ function get_so_trang($dssp, $trang)
 }
 
 // Hàm lấy ra những sản phẩm mới nhất
-function getAllProducts()
+function getAllProductsNewest()
 {
-  $sql = "SELECT * FROM products order by id desc limit 4";
+  $sql = "SELECT * FROM products order by id asc limit 4";
   return pdo_query($sql);
 }
 
@@ -71,7 +71,7 @@ function getProductByCategory_Home()
 {
   $sql = "SELECT * FROM categories
     left join products on products.id_category = categories.id
-    WHERE categories.home = 1";
+    WHERE categories.home = 1 limit 4";
   return pdo_query($sql);
 }
 
@@ -90,13 +90,15 @@ function getProductRelated($iddm, $id, $limit)
 }
 
 // hàm lấy tất cả sp ko limit
-function getAllProductsNoLimit() {
+function getAllProductsNoLimit()
+{
   $sql = "SELECT * FROM products ORDER BY id DESC";
   return pdo_query($sql);
 }
 
 // Hàm thêm sản phẩm mới vào cơ sở dữ liệu
-function add_product($name, $price, $discount_percentage, $category_id, $image_name, $des) {
+function add_product($name, $price, $discount_percentage, $category_id, $image_name, $des)
+{
   try {
     $sql = "SELECT MAX(id) as max_id FROM products";
     $max_id_row = pdo_query_one($sql);
@@ -106,37 +108,38 @@ function add_product($name, $price, $discount_percentage, $category_id, $image_n
     $result = pdo_execute($sql, $new_id, $name, $price, $discount_percentage, $category_id, $image_name, $des);
 
     if ($result === false) {
-        throw new Exception("Không thể thêm sản phẩm vào cơ sở dữ liệu.");
+      throw new Exception("Không thể thêm sản phẩm vào cơ sở dữ liệu.");
     }
     return true;
-  }catch (Exception $e) {
-      return false;
+  } catch (Exception $e) {
+    return false;
   }
 }
 // hàm xóa sản phẩm
-function delete_product($id) {
+function delete_product($id)
+{
   try {
-      $sql = "DELETE FROM products WHERE id = ?";
-      $stmt = dbConnection()->prepare($sql);
-      $stmt->execute([$id]);
-      
-      // Check if any row was deleted
-      if ($stmt->rowCount() > 0) {
-          return true;
-      } else {
-          return false;
-      }
-  } catch (PDOException $e) {
-      echo "Lỗi khi xóa sản phẩm: " . $e->getMessage();
+    $sql = "DELETE FROM products WHERE id = ?";
+    $stmt = dbConnection()->prepare($sql);
+    $stmt->execute([$id]);
+
+    if ($stmt->rowCount() > 0) {
+      return true;
+    } else {
       return false;
+    }
+  } catch (PDOException $e) {
+    echo "Lỗi khi xóa sản phẩm: " . $e->getMessage();
+    return false;
   }
 }
 
 // hàm edit sản phẩm
-function update_product($id, $name, $price, $discount_percentage, $category_id, $image_name, $des) {
+function update_product($id, $name, $price, $discount_percentage, $category_id, $image_name, $des)
+{
   try {
-      // Cập nhật thông tin sản phẩm
-      $sql = "UPDATE products SET 
+    // Cập nhật thông tin sản phẩm
+    $sql = "UPDATE products SET 
               name = ?, 
               price = ?, 
               discount_percentage = ?, 
@@ -144,20 +147,28 @@ function update_product($id, $name, $price, $discount_percentage, $category_id, 
               thumbnail = ?, 
               des = ? 
               WHERE id = ?";
-              
-      $result = pdo_execute($sql, $name, $price, $discount_percentage, $category_id, $image_name, $des, $id);
 
-      if ($result === false) {
-          throw new Exception("Không thể cập nhật sản phẩm vào cơ sở dữ liệu.");
-      }
-      return true;
+    $result = pdo_execute($sql, $name, $price, $discount_percentage, $category_id, $image_name, $des, $id);
+
+    if ($result === false) {
+      throw new Exception("Không thể cập nhật sản phẩm vào cơ sở dữ liệu.");
+    }
+    return true;
   } catch (Exception $e) {
-      return false;
+    return false;
   }
 }
 
 // Hàm lấy thông tin sản phẩm theo ID
-function get_product_by_id($id) {
+function get_product_by_id($id)
+{
   $sql = "SELECT * FROM products WHERE id = ?";
   return pdo_query_one($sql, $id);
+}
+
+//hàm lấy tất cả order no limit
+function getAllOrderNoLimit()
+{
+  $sql = "SELECT * FROM orders ORDER BY id DESC";
+  return pdo_query($sql);
 }

@@ -289,9 +289,55 @@ function show_sp_admin($products)
                                     <td>
 <a href="?mod=product&act=add_product"><span class="status delivered">Add</span></a>
 <a href="?mod=product&act=edit_product&id=' . $id . '"><span class="status delivered">Edit</span>
-<a href="?mod=product&act=Delete_product&id=' . $id . '"><span class="status return">Delete</span>
+<a href="?mod=product&act=delete_product&id=' . $id . '"><span class="status return">Delete</span>
                                     </td>
                                 </tr>';
   }
   return $html_product_admin;
+}
+
+function show_us_admin($users)
+{
+  $html_us_admin = "";
+  foreach ($users as $item) {
+    extract($item);
+    $short_pass = mb_strimwidth($password, 0, 20, '...');
+    $html_us_admin .= '<tr>
+                                    <td>' . $id . '</td>
+                                    <td>' . $username . '</td>
+                                    <td>' . $email. '</td>
+                                    <td>' . $phone . '</td>
+                                    <td>' . $short_pass . '</td>
+                                    <td>' . $role . '</td>
+                                    <td>
+<a href="?mod=user&act=add_user"><span class="status delivered">Add</span></a>
+<a href="?mod=user&act=edit_user&id=' . $id . '"><span class="status delivered">Edit</span>
+<a href="?mod=user&act=delete_user&id=' . $id . '"><span class="status return">Delete</span>
+                                    </td>
+                                </tr>';
+  }
+  return $html_us_admin;
+}
+
+function show_od_admin($order)
+{
+  $html_od_admin = "";
+  foreach ($order as $item) {
+    extract($item);
+    $html_od_admin .= '<tr>
+                                    <td>' . $id . '</td>
+                                    <td>' . $code . '</td>
+                                    <td>' . $order_date. '</td>
+                                    <td>' . $phone . '</td>
+                                    <td>' . $total . '</td>
+                                    <td>' . $status . '</td>
+                                    <td>' . $address . '</td>
+                                    <td>
+<a href="?mod=user&act=add_user"><span class="status delivered">Add</span></a>
+<a href="?mod=product&act=edit_product&id=' . $id . '"><span class="status delivered">Edit</span>
+<a href="?mod=product&act=Delete_product&id=' . $id . '"><span class="status return">Delete</span>
+                                    </td>
+                                </tr>';
+  }
+  return $html_od_admin;
 }

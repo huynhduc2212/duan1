@@ -11,6 +11,12 @@ include_once "model/view.php";
 if ($_GET['act']) {
     switch ($_GET['act']) {
         case 'product':
+            if (isset($_POST['keyword']) && ($_POST['keyword'] != "")) {
+                $key = $_POST['keyword'];
+            } else {
+                $key = "";
+            }
+
             if (isset($_GET['category_id']) && (is_numeric($_GET['category_id'])) && ($_GET['category_id']) > 0) {
                 $category_id = $_GET['category_id'];
 
@@ -26,7 +32,7 @@ if ($_GET['act']) {
             }
 
             $categories = getCategory_Home_List();
-            $products_category = getProductsByCategory($category_id);
+            $products_category = getProductsByCategory($key, $category_id);
 
             if (isset($_GET['trang']) && $_GET['trang'] > 0) {
                 $trang = $_GET['trang'];
@@ -124,13 +130,11 @@ if ($_GET['act']) {
             }
             include_once "view/product_add.php";
             break;
-        case 'Delete_product';
+        case 'delete_product';
             if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                 $kq = delete_product($_GET['id']);
                 if ($kq) {
-                    echo "<script>
-                        window.location.href = 'admin.php?mod=product&act=admin_product';
-                      </script>";
+                      header("Location: admin.php?mod=product&act=admin_product");
                     exit();
                 } else {
                     echo "<script>
@@ -142,7 +146,6 @@ if ($_GET['act']) {
             }
             break;
         case 'edit_product':
-            // Kiểm tra quyền người dùng
             if (!(isset($_SESSION['user']) && $_SESSION['user']['role'] == '1')) {
                 header('Location: ?mod=page&act=home');
                 exit();
@@ -163,7 +166,7 @@ if ($_GET['act']) {
                     );
                     if (!$upload_result) {
                         echo "<script>alert('Lỗi khi di chuyển tệp');</script>";
-                        $image_name = null; 
+                        $image_name = null;
                     }
                 } else {
                     // Nếu không có tệp mới, giữ nguyên hình ảnh cũ
@@ -194,6 +197,10 @@ if ($_GET['act']) {
             $product_id = $_GET['id'];
             $product = get_product_by_id($product_id);
             include_once "view/product_edit.php";
+            break;
+        case 'admin_order';
+            $order = getAllOrderNoLimit();
+            include_once "view/admin_order.php";
             break;
         default:
             # 404 - trang web không tồn tại!
