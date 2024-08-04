@@ -24,14 +24,14 @@
                     </a>
                 </li>
 
-                <!-- <li>
-                    <a href="#">
+                <li>
+                    <a href="?mod=product&act=admin_char">
                         <span class="icon">
-                            <ion-icon name="home-outline"></ion-icon>
+                            <ion-icon name="bar-chart-outline"></ion-icon>
                         </span>
-                        <span class="title">Trang Chủ</span>
+                        <span class="title">Thống kê</span>
                     </a>
-                </li> -->
+                </li>
                 <li>
                     <a href="?mod=product&act=admin_product">
                         <span class="icon">

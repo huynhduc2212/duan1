@@ -172,3 +172,56 @@ function getAllOrderNoLimit()
   $sql = "SELECT * FROM orders ORDER BY id DESC";
   return pdo_query($sql);
 }
+
+// hàm edit order
+function update_order($id, $phone, $address, $status)
+{
+    try {
+        $sql = "UPDATE orders SET 
+                  phone = ?, 
+                  address = ?, 
+                  status = ?
+                  WHERE id = ?";
+
+        $params = [$phone, $address, $status, $id];
+
+        $result = pdo_execute($sql, ...$params);
+
+        if ($result === false) {
+            throw new Exception("Không thể cập nhật thông tin đơn hàng vào cơ sở dữ liệu.");
+        }
+        return true;
+    } catch (Exception $e) {
+        return false;
+    }
+}
+
+// Hàm lấy thông tin order theo ID
+function get_order_by_id($id)
+{
+  $sql = "SELECT * FROM orders WHERE id = ?";
+  return pdo_query_one($sql, $id);
+}
+
+// hàm xóa order
+function delete_order($id)
+{
+    try {
+        $sql1 = "DELETE FROM orderdetails WHERE id_order = ?";
+        $stmt1 = dbConnection()->prepare($sql1);
+        $stmt1->execute([$id]);
+
+        $sql2 = "DELETE FROM orders WHERE id = ?";
+        $stmt2 = dbConnection()->prepare($sql2);
+        $stmt2->execute([$id]);
+
+        if ($stmt2->rowCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    } catch (PDOException $e) {
+        echo "Lỗi khi xóa order: " . $e->getMessage();
+        return false;
+    }
+}

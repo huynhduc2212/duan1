@@ -97,7 +97,6 @@ if ($_GET['act']) {
             include_once 'model/categories.php';
 
             if (isset($_POST['submit'])) {
-                // Thêm sản phẩm vào cơ sở dữ liệu
                 $kq = add_product(
                     $_POST['up_name'],
                     $_POST['up_price'],
@@ -106,15 +105,12 @@ if ($_GET['act']) {
                     $_FILES['up_img']['name'],
                     $_POST['up_Des']
                 );
-                // Kiểm tra nếu thêm sản phẩm thành công
                 if ($kq) {
-                    // Kiểm tra nếu tệp đã được tải lên và không có lỗi
                     if (isset($_FILES['up_img']) && $_FILES['up_img']['error'] == 0) {
                         $upload_result = move_uploaded_file(
                             $_FILES['up_img']['tmp_name'],
                             "assets_user/img/" . $_FILES['up_img']['name']
                         );
-                        // Kiểm tra nếu di chuyển tệp thành công
                         if ($upload_result) {
                             header("Location: admin.php?mod=product&act=admin_product");
                             exit();
@@ -134,7 +130,7 @@ if ($_GET['act']) {
             if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                 $kq = delete_product($_GET['id']);
                 if ($kq) {
-                      header("Location: admin.php?mod=product&act=admin_product");
+                    header("Location: admin.php?mod=product&act=admin_product");
                     exit();
                 } else {
                     echo "<script>
@@ -157,7 +153,7 @@ if ($_GET['act']) {
 
             if (isset($_POST['submit'])) {
                 $product_id = $_POST['product_id'];
-                // Kiểm tra nếu có tệp hình ảnh mới
+                // Kiểm tra nếu có ảnh mới
                 $image_name = $_FILES['up_img']['name'];
                 if ($image_name) {
                     $upload_result = move_uploaded_file(
@@ -169,11 +165,10 @@ if ($_GET['act']) {
                         $image_name = null;
                     }
                 } else {
-                    // Nếu không có tệp mới, giữ nguyên hình ảnh cũ
+                    // Nếu không có tệp mới, giữ ảnh cũ
                     $image_name = $_POST['current_image'];
                 }
 
-                // Cập nhật thông tin sản phẩm vào cơ sở dữ liệu
                 $kq = update_product(
                     $product_id,
                     $_POST['up_name'],
@@ -184,7 +179,6 @@ if ($_GET['act']) {
                     $_POST['up_Des']
                 );
 
-                // Kiểm tra nếu cập nhật thành công
                 if ($kq) {
                     header("Location: admin.php?mod=product&act=admin_product");
                     exit();
@@ -193,7 +187,6 @@ if ($_GET['act']) {
                 }
             }
 
-            // Lấy thông tin sản phẩm để hiển thị trong form
             $product_id = $_GET['id'];
             $product = get_product_by_id($product_id);
             include_once "view/product_edit.php";
@@ -201,6 +194,48 @@ if ($_GET['act']) {
         case 'admin_order';
             $order = getAllOrderNoLimit();
             include_once "view/admin_order.php";
+            break;
+        case 'edit_order':
+            if (!(isset($_SESSION['user']) && $_SESSION['user']['role'] == '1')) {
+                header('Location: ?mod=page&act=home');
+                exit();
+            }
+            if (isset($_POST['submit'])) {
+                $order_id = $_POST['order_id'];
+                $kq = update_order(
+                    $order_id,
+                    $_POST['up_phone'],
+                    $_POST['up_address'],
+                    $_POST['up_status']
+                );
+                if ($kq) {
+                    header("Location: admin.php?mod=product&act=admin_order");
+                    exit();
+                } else {
+                    echo "<script>alert('Lỗi khi cập nhật thông tin đơn hàng');</script>";
+                }
+            }
+            $order_id = $_GET['id'];
+            $order = get_order_by_id($order_id);
+            include_once "view/order_edit.php";
+            break;
+        case 'delete_order';
+            if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+                $kq = delete_order($_GET['id']);
+                if ($kq) {
+                    header("Location: admin.php?mod=product&act=admin_order");
+                    exit();
+                } else {
+                    echo "<script>
+                        alert('Có lỗi xảy ra khi xóa sản phẩm');
+                      </script>";
+                }
+            } else {
+                echo "<script>alert('ID sản phẩm không hợp lệ');</script>";
+            }
+            break;
+        case 'admin_char';
+            include_once "view/admin_char.php";
             break;
         default:
             # 404 - trang web không tồn tại!

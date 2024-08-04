@@ -40,8 +40,8 @@ function get_user_info($iduser)
 // hàm lấy tất cả user ko limit
 function getAllUserNoLimit()
 {
-  $sql = "SELECT * FROM users ORDER BY id DESC";
-  return pdo_query($sql);
+    $sql = "SELECT * FROM users ORDER BY id DESC";
+    return pdo_query($sql);
 }
 
 //hàm add user
@@ -95,7 +95,8 @@ function update_ad_user($id, $name, $email, $password, $phone, $address, $role)
 
 
 // hàm lấy user theo id
-function get_user_by_id($id) {
+function get_user_by_id($id)
+{
     $sql = "SELECT * FROM users WHERE id = ?";
     return pdo_query_one($sql, $id);
 }
@@ -103,18 +104,17 @@ function get_user_by_id($id) {
 // hàm xóa user
 function delete_user($id)
 {
-  try {
-    $sql = "DELETE FROM users WHERE id = ?";
-    $stmt = dbConnection()->prepare($sql);
-    $stmt->execute([$id]);
-
-    if ($stmt->rowCount() > 0) {
-      return true;
-    } else {
-      return false;
+    try {
+        $sql = "DELETE FROM users WHERE id = ?";
+        $stmt = dbConnection()->prepare($sql);
+        $stmt->execute([$id]);
+        if ($stmt->rowCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    } catch (PDOException $e) {
+        echo "Lỗi khi xóa user: " . $e->getMessage();
+        return false;
     }
-  } catch (PDOException $e) {
-    echo "Lỗi khi xóa user: " . $e->getMessage();
-    return false;
-  }
 }

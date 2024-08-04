@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: sans-serif;
+            min-height: 100vh;
+            color: #555;
+            background-color: #fff;
+        }
+        .Char{
+            max-width: 900px;
+            height: 450px;
+            padding: 50px;
+            margin: 0 auto;
+        }
+        .Char .Char_types{
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .Char .Char_types button{
+            padding: 10px 25px;
+        }
+        
+    </style>
+    <link href="assets_admin/data/data.json">
+</head>
+<body>
+    <div class="Chart">
+        <canvas id="myChart">
+        </canvas>
+    </div>
+
+    <script src="assets_admin/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js" integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>

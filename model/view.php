@@ -333,9 +333,8 @@ function show_od_admin($order)
                                     <td>' . $status . '</td>
                                     <td>' . $address . '</td>
                                     <td>
-<a href="?mod=user&act=add_user"><span class="status delivered">Add</span></a>
-<a href="?mod=product&act=edit_product&id=' . $id . '"><span class="status delivered">Edit</span>
-<a href="?mod=product&act=Delete_product&id=' . $id . '"><span class="status return">Delete</span>
+<a href="?mod=product&act=edit_order&id=' . $id . '"><span class="status delivered">Edit</span>
+<a href="?mod=product&act=delete_order&id=' . $id . '"><span class="status return">Delete</span>
                                     </td>
                                 </tr>';
   }
