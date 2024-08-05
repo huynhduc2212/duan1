@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="assets_admin/css/admin.css">
+    
 </head>
 
 <body>
@@ -79,7 +80,7 @@
 
                 <div class="search">
                     <label>
-                        <input type="text" placeholder="Search here">
+                        <input type="text" placeholder="Search here" id="searchInput" onkeyup="filterTable()">
                         <ion-icon name="search-outline"></ion-icon>
                     </label>
                 </div>
@@ -144,7 +145,7 @@
                         <a href="#" class="btn">View All</a>
                     </div>
 
-                    <table>
+                    <table id="orderTable">
                         <thead>
                             <tr>
                                 <td>ID</td>
@@ -296,7 +297,7 @@
         </div>
     </div>
     <script src="assets_admin/js/main.js"></script>
-
+    <script src="assets_admin/js/search.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
