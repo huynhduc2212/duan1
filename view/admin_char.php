@@ -80,7 +80,7 @@
             <div class="cardBox">
                 <div class="card">
                     <div>
-                        <div class="numbers">80</div>
+                        <div class="numbers"><?php echo get_total_orders(); ?></div>
                         <div class="cardName">Sản phẩm đã bán</div>
                     </div>
 
@@ -91,7 +91,7 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">70000000</div>
+                        <div class="numbers"><?php echo number_format(get_total_income(), 0, ',', '.'); ?>đ</div>
                         <div class="cardName">Thu nhập</div>
                     </div>
 
@@ -112,9 +112,13 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
-    <script src="assets_admin/js/linechar.js"></script>
+
+    <div id="xValues" style="display:none;"><?php echo json_encode($xValues); ?></div>
+    <div id="yValues" style="display:none;"><?php echo json_encode($yValues); ?></div>
+
+    <script src="assets_admin/js/char.js"></script>
     <script src="assets_admin/js/main.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

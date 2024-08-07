@@ -407,7 +407,10 @@ a{
 .recentCustomers table tr:hover td h4 span {
   color: var(--white);
 }
-
+td img{
+  width: 30px;
+  height: 30px;
+}
 /* ====================== Responsive Design ========================== */
 @media (max-width: 991px) {
   .navigation {

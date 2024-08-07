@@ -131,28 +131,36 @@ if ($_GET['act']) {
             $users = getAllUserNoLimit();
             include_once "view/admin_user.php";
             break;
-        case 'add_user':
-            if (!(isset($_SESSION['user']) && $_SESSION['user']['role'] == '1')) {
-                header('Location: ?mod=page&act=home');
-                exit();
-            }
-            if (isset($_POST['submit'])) {
-                $kq = add_user(
-                    $_POST['up_name'],
-                    $_POST['up_email'],
-                    $_POST['up_password'],
-                    $_POST['up_phone'],
-                    $_POST['up_address'],
-                    $_POST['up_role']
-                );
-                if ($kq) {
-                    header('Location: ?mod=user&act=admin_user');
-                } else {
-                    echo "<script>alert('Lỗi khi thêm người dùng vào cơ sở dữ liệu');</script>";
+            case 'add_user':
+                if (!(isset($_SESSION['user']) && $_SESSION['user']['role'] == '1')) {
+                    header('Location: ?mod=page&act=home');
+                    exit();
                 }
-            }
-            include_once "view/user_add.php";
-            break;
+                
+                if (isset($_POST['submit'])) {
+                    $name = trim($_POST['up_name']);
+                    $email = trim($_POST['up_email']);
+                    $password = trim($_POST['up_password']);
+                    $phone = trim($_POST['up_phone']);
+                    $address = trim($_POST['up_address']);
+                    $role = trim($_POST['up_role']);
+                    
+                    // Kiểm tra nếu các trường không bị bỏ trống
+                    if (empty($name) || empty($email) || empty($password) || empty($phone) || empty($address) || empty($role)) {
+                        echo "<script>alert('Vui lòng nhập tất cả thông tin.');</script>";
+                    } else {
+                        $kq = add_user($name, $email, $password, $phone, $address, $role);
+                        if ($kq) {
+                            header('Location: ?mod=user&act=admin_user');
+                            exit();
+                        } else {
+                            echo "<script>alert('Lỗi khi thêm người dùng vào cơ sở dữ liệu');</script>";
+                        }
+                    }
+                }
+                include_once "view/user_add.php";
+                break;
+            
         case 'edit_user':
             if (!(isset($_SESSION['user']) && $_SESSION['user']['role'] == '1')) {
                 header('Location: ?mod=page&act=home');

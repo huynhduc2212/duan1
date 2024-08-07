@@ -140,7 +140,7 @@
             <div class="details">
                 <div class="recentOrders">
                     <div class="cardHeader">
-                        <h2>Recent Orders</h2>
+                        <h2>Đơn Hàng</h2>
                         <a href="#" class="btn">View All</a>
                     </div>
 

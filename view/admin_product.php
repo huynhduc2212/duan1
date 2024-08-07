@@ -141,8 +141,8 @@
             <div class="details">
                 <div class="recentOrders">
                     <div class="cardHeader">
-                        <h2>Recent Orders</h2>
-                        <a href="#" class="btn">View All</a>
+                        <h2>Sản Phẩm</h2>
+                        <a href="?mod=product&act=add_product" style="padding: 5px 10px;"><span class="status delivered" style="padding: 8px 10px;">Add</span></a>
                     </div>
 
                     <table id="orderTable">
